@@ -444,6 +444,7 @@ const deleteRole = () => {
                 db.query(query, chosenRole, (err, result) => {
                     if (err) throw err;
                     console.log(`${chosenRole} has been deleted!`);
+                    viewAllRoles();
                 });
 
             });
