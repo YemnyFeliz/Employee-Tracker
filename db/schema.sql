@@ -3,16 +3,18 @@ DROP DATABASE IF EXISTS employees_db;
 -- Create a new database name employees_db
 CREATE DATABASE employees_db;
 
--- Use the employees_db for the following actions
+-- Use the employees_db 
 USE employees_db;
 
--- Create a table name department with 2 rows
+-- Tables have a primary key to relate tables to each other
+
+-- Create a table name department, 2 rows
 CREATE TABLE department (
   id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
   name VARCHAR(30) NOT NULL
 );
 
--- Create a table named role with 4 rows
+-- Create a table named role, 4 rows
 CREATE TABLE role (
   id INT AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(30),
@@ -23,7 +25,7 @@ CREATE TABLE role (
   ON DELETE SET NULL
 );
 
--- Create a table name employee with 5 rows
+-- Create a table name employee, 5 rows
 CREATE TABLE employee (
   id INT AUTO_INCREMENT PRIMARY KEY,
   first_name VARCHAR(30),

@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 require('dotenv').config();
 const mysql = require('mysql2');
 
+//connect to mysql
 const db = mysql.createConnection(
     {
         host: 'localhost',
@@ -16,6 +17,7 @@ db.connect((err) => {
     userPrompts();
 });
 
+//user prompts
 const userPrompts = () => {
     inquirer
         .prompt([
@@ -42,6 +44,8 @@ const userPrompts = () => {
 
             },
         ])
+
+        //A different function will be executed according to the user's choice
         .then((res) => {
             const choice = res.options;
             switch (choice) {
@@ -92,6 +96,7 @@ const userPrompts = () => {
         });
 };
 
+//Select all the department 
 const viewAllDepartments = () => {
     let query = `SELECT * FROM department`;
     db.query(query, (err, res) => {
@@ -101,6 +106,7 @@ const viewAllDepartments = () => {
     });
 };
 
+//Select all roles from role table
 const viewAllRoles = () => {
     let query =
         `SELECT role.id, role.title, department.name AS department
@@ -114,6 +120,7 @@ const viewAllRoles = () => {
     });
 };
 
+//Selects employees info and adds employee's manager
 const viewAllEmployees = () => {
     const query =
         `SELECT employee.id, 
@@ -136,6 +143,7 @@ const viewAllEmployees = () => {
 
 };
 
+//User's input is used to add to department table
 const addDepartment = () => {
     inquirer.prompt([
         {
@@ -159,6 +167,7 @@ const addDepartment = () => {
 
 };
 
+//User's input and department table are used to add to role table
 const addRole = () => {
     inquirer.prompt([
         {
@@ -211,6 +220,7 @@ const addRole = () => {
         });
 };
 
+//Data from employee and role tables and user's inout are used to add a new employee
 const addEmployee = () => {
     const getRole = `SELECT role.id, role.title FROM role`;
     db.query(getRole, (err, data) => {
@@ -285,22 +295,12 @@ const addEmployee = () => {
 
                     })
 
-
-
-
-
-
-
-
-
-
-
                 });
         });
     });
 }
 
-
+//Info from employee and role tables together with user input is used to create a new role
 const UpdateEmployeeRole = () => {
     const getEmployee = `SELECT * FROM employee`;
 
@@ -359,6 +359,7 @@ const UpdateEmployeeRole = () => {
     });
 };
 
+//Data from employee is joined to data in role and department tables to show all employees by department
 const viewEmployeesByDepartment = () => {
     let query =
         `SELECT employee.first_name, 
@@ -375,6 +376,7 @@ const viewEmployeesByDepartment = () => {
     });
 };
 
+//Data from employees is used to display employees by manager
 const viewEmployeesByManager = () => {
     let query =
         `SELECT employee.first_name,
@@ -389,6 +391,8 @@ const viewEmployeesByManager = () => {
         userPrompts();
     });
 };
+
+//Data is retrieved and combined from tables in the following functions to execute the user's choices
 
 const deleteDepartment = () => {
     const getDepartment = `SELECT * FROM department`;

@@ -1,8 +1,11 @@
+-- Creating columns to add values
+-- Inserts values to department table
 INSERT INTO department(name)
 VALUES ('Management'),
 ('Kitchen'),
 ('Customer Service');
 
+-- Inserts values to role table
 INSERT INTO role(title, salary, department_id)
 VALUES ('General manager', 70000, 1),
 ('Cheff', 65000, 1),
@@ -15,6 +18,7 @@ VALUES ('General manager', 70000, 1),
 ('Host', 42000, 3),
 ('Busser', 42500, 3);
 
+-- Inserts values to employee table
 INSERT INTO employee(first_name, last_name, role_id, manager_id)
 VALUES ('Anthony', 'Azzi', 1, 1),
 ('Bobby', 'Hoffman', 2, 1),
