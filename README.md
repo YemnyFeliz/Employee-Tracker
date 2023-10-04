@@ -36,7 +36,7 @@
   
   - [ Video link](https://drive.google.com/file/d/1OPvqVyv2_UtivDRObHRmrj4J60XV1gI_/view)
 
-  - [ Heroku Deploy ]()
+  
 
   ## Installation
   - node js
