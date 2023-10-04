@@ -13,7 +13,7 @@ VALUES ('General manager', 70000, 1),
 ('Server', 45000, 3),
 ('Bartender', 46000, 3),
 ('Host', 42000, 3),
-('Busser', 42500, 3)
+('Busser', 42500, 3);
 
 INSERT INTO employee(first_name, last_name, role_id, manager_id)
 VALUES ('Anthony', 'Azzi', 1, null),
@@ -44,7 +44,7 @@ VALUES ('Anthony', 'Azzi', 1, null),
 ('Shivani', 'Singh', 9, 3),
 ('Neha', 'Sabannavar', 9, 4),
 ('Matthew', 'Trucco', 10, 3),
-('Neil', 'Holloway', 10, 4)
+('Neil', 'Holloway', 10, 4);
 
 
 
